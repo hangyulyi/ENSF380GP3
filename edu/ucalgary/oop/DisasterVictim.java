@@ -1,6 +1,7 @@
 package edu.ucalgary.oop;
 
 import java.util.regex.*;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -10,10 +11,10 @@ public class DisasterVictim {
    private String dateOfBirth;
    private String comments;
    private int ASSIGNED_SOCIAL_ID;
-   private List<MedicalRecord> medicalRecords;
-   private List<FamilyRelation> familyConnections;
+   private MedicalRecord[] medicalRecords;
+   private ArrayList<FamilyRelation> familyConnections;
    private String ENTRY_DATE;
-   private List<Supply> personalBelongings;
+   private ArrayList<Supply> personalBelongings;
    private String gender;
    private static int counter;
    private static final String DATE_FORMAT_REGEX = "^\\d{4}-\\d{2}-\\d{2}$";
@@ -21,8 +22,14 @@ public class DisasterVictim {
    /* Constructor */
    public DisasterVictim(String firstName, String ENTRY_DATE) throws IllegalArgumentException {
       this.firstName = firstName;
-      this.ENTRY_DATE = ENTRY_DATE;
+      if(ENTRY_DATE.matches(DATE_FORMAT_REGEX)) { this.ENTRY_DATE = ENTRY_DATE; }
+      else {
+         throw new IllegalArgumentException("Invalid ENTRY_DATE format. Should be in YYYY-MM-DD.");
+      }
       this.familyConnections = new ArrayList<>();
+      this.personalBelongings = new ArrayList<>();
+      this.ASSIGNED_SOCIAL_ID = counter;
+      counter++;
    }
 
    /* Setters */
@@ -48,16 +55,16 @@ public class DisasterVictim {
       this.comments = comments;
    }
 
-   public void setMedicalRecords(List<MedicalRecord> medicalRecords) {
+   public void setMedicalRecords(MedicalRecord[] medicalRecords) {
       this.medicalRecords = medicalRecords;
    }
 
-   public void setPersonalBelongings(List<Supply> supplies) {
-      this.personalBelongings = supplies;
+   public void setPersonalBelongings(Supply[] supplies) {
+      this.personalBelongings.addAll(Arrays.asList(supplies));
    }
 
-   public void setFamilyConnections(List<FamilyRelation> relation) {
-      this.familyConnections = relation;
+   public void setFamilyConnections(FamilyRelation[] relation) {
+      this.familyConnections.addAll(Arrays.asList(relation));
    }
 
    public void setGender(String gender) {
@@ -69,21 +76,27 @@ public class DisasterVictim {
    public String getLastName() { return this.lastName; }
    public String getDateOfBirth() { return this.dateOfBirth; }
    public String getComments() { return this.comments; }
-   public List<MedicalRecord> getMedicalRecords() { return this.medicalRecords; }
+   public MedicalRecord[] getMedicalRecords() { return this.medicalRecords; }
    public String getEntryDate() { return this.ENTRY_DATE; }
    public int getAssignedSocialID() { return this.ASSIGNED_SOCIAL_ID; }
-   public List<Supply> getPersonalBelongings() { return this.personalBelongings; }
-   public List<FamilyRelation> getFamilyConnections() { return this.familyConnections; }
+   public Supply[] getPersonalBelongings() { 
+      return personalBelongings.toArray(new Supply[0]); 
+   }
+
+   public FamilyRelation[] getFamilyConnections() { 
+      return familyConnections.toArray(new FamilyRelation[0]); 
+   }
+
    public String getGender() { return this.gender; }
 
 
    /* Additional methods */
    public void addPersonalBelonging(Supply supply) {
-
+      personalBelongings.add(supply);
    }
    
    public void removePersonalBelonging(Supply supply) {
-
+      personalBelongings.remove(supply);
    }
 
    public void addFamilyConnection(FamilyRelation familyConnection) {
@@ -95,6 +108,6 @@ public class DisasterVictim {
    }
 
    public void addMedicalRecord(MedicalRecord medicalRecord) {
-
+      medicalRecords = new MedicalRecord[]{medicalRecord};
    }
 }
