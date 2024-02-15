@@ -13,6 +13,7 @@ public class MedicalRecord {
       this.treatmentDetails = treatmentDetails;
       if(dateOfTreatment.matches(DATE_FORMAT_REGEX)) {
          this.dateOfTreatment = dateOfTreatment;
+         return;
       }
       else {
          throw new IllegalArgumentException("Invalid dateOfTreatment format. Should be in YYYY-MM-DD.");
