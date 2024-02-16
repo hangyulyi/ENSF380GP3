@@ -1,5 +1,10 @@
 package edu.ucalgary.oop;
 
+/**
+ * Represents a FamilyRelation between two DisasterVictims.
+ * 
+ * User can get/set relationships.
+ */
 public class FamilyRelation {
    private DisasterVictim personOne;
    private String relationshipTo;
