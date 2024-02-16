@@ -1,5 +1,10 @@
 package edu.ucalgary.oop;
 
+/**
+ * Represents an Inquirer in the system.
+ * 
+ * Records information such as name, phone number, and additional information
+ */
 public class Inquirer {
    private String FIRST_NAME;
    private String LAST_NAME;
