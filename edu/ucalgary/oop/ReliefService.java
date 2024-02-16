@@ -1,5 +1,10 @@
 package edu.ucalgary.oop;
 
+/**
+ * This represents a ReliefService in the system.
+ * 
+ * Users are able to record information about an inquirer, missing person, date of inquiry, information provided, and location.
+ */
 public class ReliefService {
    private Inquirer inquirer;
    private DisasterVictim missingPerson;
@@ -7,6 +12,7 @@ public class ReliefService {
    private String infoProvided;
    private Location lastKnownLocation;
 
+   /* Constructor */
    public ReliefService(Inquirer inquirer, DisasterVictim missingPerson, String dateOfInquiry, String infoProvided, Location lastKnownLocation) {
       this.inquirer = inquirer;
       this.missingPerson = missingPerson;
@@ -15,6 +21,7 @@ public class ReliefService {
       this.lastKnownLocation = lastKnownLocation;
    }
 
+   /* Setters and Getters */
    public Inquirer getInquirer() {
       return inquirer;
    }
@@ -35,6 +42,7 @@ public class ReliefService {
       return dateOfInquiry;
    }
 
+   // Date format needs to be in YYYY-MM-DD format
    public void setDateOfInquiry(String dateOfInquiry) {
       if (!isValidDateFormat(dateOfInquiry)) {
          throw new IllegalArgumentException("Invalid date format. Date should be in the format YYYY-MM-DD.");
@@ -61,6 +69,10 @@ public class ReliefService {
       this.lastKnownLocation = lastKnownLocation;
    }
 
+   /**
+    * This prints the contents of the variables
+    * @return Print statement with information in readable format.
+    */
    public String getLogDetails() {
       // Assuming Inquirer and DisasterVictim have appropriate getName() methods
       return "Inquirer: " + inquirer.getFirstName() + ", Missing Person: " + missingPerson.getFirstName() + ", Date of Inquiry: " + dateOfInquiry + ", Info Provided: " + infoProvided + ", Last Known Location: " + lastKnownLocation.getName();
