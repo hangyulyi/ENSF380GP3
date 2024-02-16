@@ -1,8 +1,6 @@
 package edu.ucalgary.oop;
 
-import java.util.regex.*;
 import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
 
 public class DisasterVictim {
@@ -11,7 +9,7 @@ public class DisasterVictim {
    private String dateOfBirth;
    private String comments;
    private int ASSIGNED_SOCIAL_ID;
-   private MedicalRecord[] medicalRecords;
+   private ArrayList<MedicalRecord> medicalRecords;
    private ArrayList<FamilyRelation> familyConnections;
    private String ENTRY_DATE;
    private ArrayList<Supply> personalBelongings;
@@ -28,6 +26,7 @@ public class DisasterVictim {
       }
       this.familyConnections = new ArrayList<>();
       this.personalBelongings = new ArrayList<>();
+      this.medicalRecords = new ArrayList<>();
       this.ASSIGNED_SOCIAL_ID = counter;
       counter++;
    }
@@ -56,7 +55,7 @@ public class DisasterVictim {
    }
 
    public void setMedicalRecords(MedicalRecord[] medicalRecords) {
-      this.medicalRecords = medicalRecords;
+      this.medicalRecords.addAll(Arrays.asList(medicalRecords));
    }
 
    public void setPersonalBelongings(Supply[] supplies) {
@@ -76,11 +75,11 @@ public class DisasterVictim {
    public String getLastName() { return this.lastName; }
    public String getDateOfBirth() { return this.dateOfBirth; }
    public String getComments() { return this.comments; }
-   public MedicalRecord[] getMedicalRecords() { return this.medicalRecords; }
+   public MedicalRecord[] getMedicalRecords() { return this.medicalRecords.toArray(new MedicalRecord[0]); }
    public String getEntryDate() { return this.ENTRY_DATE; }
    public int getAssignedSocialID() { return this.ASSIGNED_SOCIAL_ID; }
    public Supply[] getPersonalBelongings() { 
-      return personalBelongings.toArray(new Supply[0]); 
+      return this.personalBelongings.toArray(new Supply[0]); 
    }
 
    public FamilyRelation[] getFamilyConnections() { 
@@ -108,6 +107,6 @@ public class DisasterVictim {
    }
 
    public void addMedicalRecord(MedicalRecord medicalRecord) {
-      medicalRecords = new MedicalRecord[]{medicalRecord};
+      medicalRecords.add(medicalRecord);
    }
 }
