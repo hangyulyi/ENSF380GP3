@@ -1,5 +1,10 @@
 package edu.ucalgary.oop;
 
+/**
+ * Represents a MedicalRecord in the system.
+ * 
+ * Records the location, treatment, and date of treatment for a DisasterVictim.
+ */
 public class MedicalRecord {
    private Location location;
    private String treatmentDetails;
@@ -8,6 +13,7 @@ public class MedicalRecord {
    private static final String DATE_FORMAT_REGEX = "^\\d{4}-\\d{2}-\\d{2}$";
 
    /* Constructor */
+   // Make sure dateOfTreatment is in correct format.
    public MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment) throws IllegalArgumentException {
       this.location = location;
       this.treatmentDetails = treatmentDetails;
