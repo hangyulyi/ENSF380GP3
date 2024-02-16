@@ -2,7 +2,11 @@ package edu.ucalgary.oop;
 
 import java.util.Arrays;
 import java.util.ArrayList;
-
+/**
+ * Represents a DisasterVictim in the system.
+ * Users can create a DisasterVictim with a firstName and ENTRY_DATA.
+ * Users can perform actions such as adding additional information, updating FamilyRelation, MedicalRecord, and Supply.
+ */
 public class DisasterVictim {
    private String firstName;
    private String lastName;
@@ -90,22 +94,42 @@ public class DisasterVictim {
 
 
    /* Additional methods */
+   /**
+    * This method will add Supply to this DisasterVictim
+    * @param supply
+    */
    public void addPersonalBelonging(Supply supply) {
       personalBelongings.add(supply);
    }
    
+   /**
+    * This method will remove Supply from this DisasterVictim
+    * @param supply
+    */
    public void removePersonalBelonging(Supply supply) {
       personalBelongings.remove(supply);
    }
 
+   /**
+    * This method will add FamilyRelation to this DisasterVictim
+    * @param familyConnection
+    */
    public void addFamilyConnection(FamilyRelation familyConnection) {
       familyConnections.add(familyConnection);
    }
 
+   /**
+    * This method will remove FamilyRelation from this DisasterVictim
+    * @param familyConnection
+    */
    public void removeFamilyConnection(FamilyRelation familyConnection) {
       familyConnections.remove(familyConnection);
    }
 
+   /**
+    * This method will add MedicalRecord to this DisasterVictim
+    * @param medicalRecord
+    */
    public void addMedicalRecord(MedicalRecord medicalRecord) {
       medicalRecords.add(medicalRecord);
    }
