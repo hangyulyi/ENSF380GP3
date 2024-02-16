@@ -5,8 +5,9 @@ See LICENSE.txt for more information.
 */
 package edu.ucalgary.oop;
 
-import org.junit.Test;
 import static org.junit.Assert.*;
+
+import org.junit.Test;
 
 public class MedicalRecordTest {
 
@@ -28,7 +29,7 @@ public class MedicalRecordTest {
     assertEquals("getLocation should return the correct Location", expectedLocation, medicalRecord.getLocation());
     }
 
- @Test
+    @Test
     public void testSetLocation() {
 	Location newExpectedLocation = new Location("Shelter B", "150 8 Ave NW ");
 	medicalRecord.setLocation(newExpectedLocation);

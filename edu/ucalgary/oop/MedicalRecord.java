@@ -38,7 +38,7 @@ public class MedicalRecord {
    }
 
    /* Getters */
-   public Location geLocation() { return this.location; }
+   public Location getLocation() { return this.location; }
    public String getTreatmentDetails() { return this.treatmentDetails; }
    public String getDateOfTreatment() { return this.dateOfTreatment; }
 }
