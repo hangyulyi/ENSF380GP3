@@ -2,6 +2,11 @@ package edu.ucalgary.oop;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a Location in the system.
+ * Each Location has a list of occupants and supplies.
+ * Users can add/remove occupants and supplies
+ */
 public class Location {
    private String name;
    private String address;
@@ -38,18 +43,35 @@ public class Location {
    public String getAddress() { return this.address; }
    public ArrayList<DisasterVictim> getOccupants(){ return this.occupants; }
    public ArrayList<Supply> getSupplies() { return this.supplies; }
+
+   /**
+    * This method is used to add an occupant to this Location.
+    * @param occupant
+    */
    public void addOccupant(DisasterVictim occupant) {
       occupants.add(occupant);
    }
 
+   /**
+    * This method is used to remove an occupant to this Location
+    * @param occupant
+    */
    public void removeOccupant(DisasterVictim occupant) {
       occupants.remove(occupant);
    }
 
+   /**
+    * This method is used to add Supply to this Location
+    * @param supply
+    */
    public void addSupply(Supply supply) {
       supplies.add(supply);
    }
 
+   /**
+    * This method is used to remove Supply from this Location
+    * @param supply
+    */
    public void removeSupply(Supply supply) {
       supplies.remove(supply);
    }
