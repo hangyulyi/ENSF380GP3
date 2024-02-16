@@ -1,3 +1,9 @@
+/**
+ * @author     Group 4
+ * @version    1.1
+ * @since      1.0
+ */
+
 package edu.ucalgary.oop;
 
 /**

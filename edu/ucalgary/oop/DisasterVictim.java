@@ -1,7 +1,14 @@
+/**
+ * @author     Group 4
+ * @version    1.3
+ * @since      1.0
+ */
+
 package edu.ucalgary.oop;
 
 import java.util.Arrays;
 import java.util.ArrayList;
+
 /**
  * Represents a DisasterVictim in the system.
  * Users can create a DisasterVictim with a firstName and ENTRY_DATA.

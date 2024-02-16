@@ -1,3 +1,9 @@
+/**
+ * @author     Group 4
+ * @version    1.2
+ * @since      1.0
+ */
+
 package edu.ucalgary.oop;
 
 import java.util.ArrayList;
